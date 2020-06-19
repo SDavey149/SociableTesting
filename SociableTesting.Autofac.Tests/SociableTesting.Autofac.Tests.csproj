@@ -18,8 +18,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\AutofacSociableTesting.DummyProject\AutofacSociableTesting.DummyProject.csproj" />
-      <ProjectReference Include="..\AutofacSociableTesting\AutofacSociableTesting.csproj" />
+      <ProjectReference Include="..\SociableTesting.Autofac\SociableTesting.Autofac.csproj" />
+      <ProjectReference Include="..\SociableTesting.DummyProject\SociableTesting.DummyProject.csproj" />
     </ItemGroup>
 
 </Project>

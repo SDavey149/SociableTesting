@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <RootNamespace>AutofacClassicalTesting</RootNamespace>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Title>Sociable Teting - Autofac</Title>
+        <Authors>Scott Davey</Authors>
+        <Description>Initialise dependencies in unit tests with your container. Provides real implementations of dependencies rather than mocks (sociable unit testing). Can also be used in integration tests.</Description>
+        <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/SDavey149/AutofacSociableTesting</RepositoryUrl>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Autofac" Version="5.2.0" />
+      <PackageReference Include="xunit.extensibility.core" Version="2.4.0" />
+    </ItemGroup>
+
+</Project>

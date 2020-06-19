@@ -37,6 +37,10 @@ public UnitShould() {
 
 Mocking means you only have to worry about the immediate set of dependencies rather than all of the layers. 
 
+## Installation
+
+This package can be installed via Nuget: https://www.nuget.org/packages/SociableTesting.Autofac/
+
 ## Usage
 
 With this package sociable unit tests can be setup without having to worry about initialising any of the dependencies. Instead,

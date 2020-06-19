@@ -1,10 +1,9 @@
-﻿﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutofacSociableTesting", "AutofacSociableTesting\AutofacSociableTesting.csproj", "{176E0B43-9BA5-4D55-8A2B-0CA3DEE4C4F9}"
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SociableTesting.Autofac", "SociableTesting.Autofac\SociableTesting.Autofac.csproj", "{176E0B43-9BA5-4D55-8A2B-0CA3DEE4C4F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutofacSociableTesting.Tests", "AutofacSociableTesting.Tests\AutofacSociableTesting.Tests.csproj", "{9641345B-BE9D-40D3-A5D3-C2825A406519}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SociableTesting.Autofac.Tests", "SociableTesting.Autofac.Tests\SociableTesting.Autofac.Tests.csproj", "{9641345B-BE9D-40D3-A5D3-C2825A406519}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutofacSociableTesting.DummyProject", "AutofacSociableTesting.DummyProject\AutofacSociableTesting.DummyProject.csproj", "{595C152C-9BBC-4096-8D37-4C3B5A1186AA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SociableTesting.DummyProject", "SociableTesting.DummyProject\SociableTesting.DummyProject.csproj", "{595C152C-9BBC-4096-8D37-4C3B5A1186AA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
