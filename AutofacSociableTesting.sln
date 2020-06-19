@@ -1,0 +1,28 @@
+﻿﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutofacSociableTesting", "AutofacSociableTesting\AutofacSociableTesting.csproj", "{176E0B43-9BA5-4D55-8A2B-0CA3DEE4C4F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutofacSociableTesting.Tests", "AutofacSociableTesting.Tests\AutofacSociableTesting.Tests.csproj", "{9641345B-BE9D-40D3-A5D3-C2825A406519}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutofacSociableTesting.DummyProject", "AutofacSociableTesting.DummyProject\AutofacSociableTesting.DummyProject.csproj", "{595C152C-9BBC-4096-8D37-4C3B5A1186AA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{176E0B43-9BA5-4D55-8A2B-0CA3DEE4C4F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{176E0B43-9BA5-4D55-8A2B-0CA3DEE4C4F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{176E0B43-9BA5-4D55-8A2B-0CA3DEE4C4F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{176E0B43-9BA5-4D55-8A2B-0CA3DEE4C4F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9641345B-BE9D-40D3-A5D3-C2825A406519}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9641345B-BE9D-40D3-A5D3-C2825A406519}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9641345B-BE9D-40D3-A5D3-C2825A406519}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9641345B-BE9D-40D3-A5D3-C2825A406519}.Release|Any CPU.Build.0 = Release|Any CPU
+		{595C152C-9BBC-4096-8D37-4C3B5A1186AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{595C152C-9BBC-4096-8D37-4C3B5A1186AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{595C152C-9BBC-4096-8D37-4C3B5A1186AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{595C152C-9BBC-4096-8D37-4C3B5A1186AA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
