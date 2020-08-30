@@ -47,17 +47,14 @@ With this package sociable unit tests can be setup without having to worry about
 dependencies are initialised with the container just like they are in production. The examples below are for use
 with XUnit.
 
-Inherit from ```SociableTest<TSut, TModule>``` where TSut is the type under test, and TModule is the Autofac module that
-the type (and its dependencies) are registered. If some dependencies aren't registered in this module then you can provide 
-a test double or fake instead using ```ProvideDependency```.
-
 ```cs
-public class SociableTestShould : SociableTest<Sut, MyModule>
+public class SociableTestShould
 {
     [Fact]
     public void InitialiseRegisteredClass()
     {
-        Sut.Should().BeOfType<Sut>();
+        var setup = new SociableTest<Sut>(new MyModule());
+        setup.Sut.Should().BeOfType<Sut>();
     }
 }
 ```
@@ -65,42 +62,23 @@ public class SociableTestShould : SociableTest<Sut, MyModule>
 ### Using Test Doubles (Mocks)
 
 Test doubles can still be used for some dependencies if you wish by using the ```ProvideDependency``` method. ```ProvideDependency```
-must be used **before** any access to either the ```Sut``` or ```Container``` properties. Once either of these properties
+must be used **before** any access to either the ```Sut``` or ```ContainerBuilder``` properties. Once either of these properties
 is accessed the container is built and ```ProvideDependency``` will no longer have any effect.
 
 ```cs
-public class SociableTestShould : SociableTest<Class1, MyModule>
+public class SociableTestShould
 {
     [Fact]
     public void InitialiseRegisteredClass()
-    {
-        var mock = new Mock<IMockedDependency>();
-        ProvideDependency<IMockedDependency>(mock.Object);
-        Sut.Should().BeOfType<Class1>();
-    }
-}
-```
-
-```SociableTest``` doesn't have to be used with inheritance. It can be used in a composition style within a test
-class which would suit unit testing packages that have separate methods for test setup like ```[TestInitialize]``` 
-in MSTest or ```[Setup]``` in NUnit.
-
-```cs
-public class SociableTestAlternativeShould
-{
-    private readonly Class1 sut;
-    
-    public SociableTestAlternativeShould()
     {
         var setup = new SociableTest<Class1, MyModule>();
-        setup.ProvideDependency<IMockedDependency>(new Mock<IMockedDependency>().Object);
-        sut = setup.Sut;
-    }
-
-    [Fact]
-    public void InitialiseRegisteredClass()
-    {
-        sut.Should().BeOfType<Class1>();
+        var mock = new Mock<IMockedDependency>();
+        ProvideDependency<IMockedDependency>(mock.Object);
+        setup.Sut.Should().BeOfType<Class1>();
     }
 }
 ```
+
+### Register on ContainerBuilder
+
+The ```ContainerBuilder``` is accessible via a public property on ```SociableTest``` so you can make use of the full range of registration types Autofac provides.
