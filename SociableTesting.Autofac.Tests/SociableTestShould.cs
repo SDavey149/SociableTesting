@@ -1,4 +1,5 @@
-﻿using Autofac.Core;
+﻿using Autofac;
+using Autofac.Core;
 using DummyProject;
 using FluentAssertions;
 using Moq;
@@ -6,23 +7,54 @@ using Xunit;
 
 namespace AutofacClassicalTesting.Tests
 {
-    public class SociableTestShould : SociableTest<Class1, MyModule>
+    public class SociableTestShould
     {
         [Fact]
-        public void InitialiseRegisteredClass()
+        public void InitialiseRegisteredClass_When_InModule()
         {
+            var setup = new SociableTest<ClassDependingOnIMockedDependency>(new MyModule());
             var mock = new Mock<IMockedDependency>();
-            ProvideDependency<IMockedDependency>(mock.Object);
-            Sut.Should().BeOfType<Class1>();
+            setup.ProvideDependency(mock.Object);
+            AssertSutCreated(setup);
         }
 
         [Fact]
-        public void ThrowExceptionIfTypeNotRegistered()
+        public void InitialiseRegisteredClass_When_AlternativeModuleRegistrationUsed()
         {
+            var setup = new SociableTest<ClassDependingOnIMockedDependency>();
+            setup.ProvideModule(new MyModule());
+            setup.ProvideDependency<IMockedDependency>(new MockedDependency());
+            AssertSutCreated(setup);
+        }
+
+        [Fact]
+        public void ThrowException_When_AccessingContainerBuilderAfterSutPropertyAccessed()
+        {
+            var setup = new SociableTest<ClassWithNoDependencies>(new MyModule());
+            var sut = setup.Sut;
+
+            Assert.Throws<ContainerAlreadyBuiltException>(() =>
+            {
+                setup.ContainerBuilder.RegisterType<MockedDependency>();
+            });
+        }
+
+        [Fact]
+        public void ThrowException_When_TypeNotRegistered()
+        {
+            var setup = new SociableTest<ClassDependingOnIMockedDependency>(new MyModule());
+            
+            //IMockedDependency isn't registered
+            
             Assert.Throws<DependencyResolutionException>(() =>
             {
-                Sut.GetType();
+                setup.Sut.GetType();
             });
+        }
+
+        private static void AssertSutCreated(SociableTest<ClassDependingOnIMockedDependency> setup)
+        {
+            setup.Sut.Should().BeOfType<ClassDependingOnIMockedDependency>();
         }
     }
 }

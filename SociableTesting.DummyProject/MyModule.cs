@@ -1,4 +1,4 @@
-﻿﻿using Autofac;
+﻿using Autofac;
 
 namespace DummyProject
 {
@@ -6,8 +6,10 @@ namespace DummyProject
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<Class1>();
-            builder.RegisterType<Dependency>().As<IDependency>();
+            builder.RegisterType<ClassDependingOnIMockedDependency>();
+            builder.RegisterType<ClassWithNoDependencies>()
+                .AsSelf()
+                .As<IDependency>();
         }
     }
 }

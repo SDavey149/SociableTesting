@@ -2,9 +2,9 @@
 
 namespace DummyProject
 {
-    public class Class1
+    public class ClassDependingOnIMockedDependency
     {
-        public Class1(IDependency dependency,
+        public ClassDependingOnIMockedDependency(IDependency dependency,
             IMockedDependency mockThisDependency)
         {
         }
