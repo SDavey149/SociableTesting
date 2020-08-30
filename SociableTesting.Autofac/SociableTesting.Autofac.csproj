@@ -4,11 +4,12 @@
         <TargetFramework>netcoreapp3.1</TargetFramework>
         <RootNamespace>AutofacClassicalTesting</RootNamespace>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <Title>Sociable Teting - Autofac</Title>
+        <Title>Sociable Testing - Autofac</Title>
         <Authors>Scott Davey</Authors>
         <Description>Initialise dependencies in unit tests with your container. Provides real implementations of dependencies rather than mocks (sociable unit testing). Can also be used in integration tests.</Description>
         <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
         <RepositoryUrl>https://github.com/SDavey149/AutofacSociableTesting</RepositoryUrl>
+        <PackageVersion>1.0.1</PackageVersion>
     </PropertyGroup>
 
     <ItemGroup>
