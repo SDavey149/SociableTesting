@@ -30,4 +30,5 @@ jobs:
       with:
         # Filepath of the project to be packaged, relative to root of repository
         PROJECT_FILE_PATH: SociableTesting.Autofac/SociableTesting.Autofac.csproj
-        VERSION_REGEX: ^\s*<PackageVersion>(.*)<\/PackageVersion>\s*$ 
+        VERSION_REGEX: ^\s*<PackageVersion>(.*)<\/PackageVersion>\s*$
+        NUGET_KEY:  ${{ secrets.NUGET_KEY }}
