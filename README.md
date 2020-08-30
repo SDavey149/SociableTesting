@@ -1,5 +1,7 @@
 # Autofac Sociable Testing
 
+![.NET Core](https://github.com/SDavey149/SociableTesting/workflows/.NET%20Core/badge.svg)
+
 The main reason for creating this package is to make writing [sociable unit tests](https://martinfowler.com/bliki/UnitTest.html) easier
 which is often used in the Chicago style of TDD as oppose to mocking which is more heavily used in the London style. These are 
 also known as classicist vs mockist testing styles. 
