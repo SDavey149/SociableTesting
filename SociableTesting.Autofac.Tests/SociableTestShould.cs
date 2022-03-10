@@ -40,6 +40,13 @@ namespace AutofacClassicalTesting.Tests
         }
 
         [Fact]
+        public void AutomaticallyMockDependency()
+        {
+            var setup = new SociableTest<ClassDependingOnIMockedDependency>();
+            AssertSutCreated(setup);
+        }
+
+        [Fact]
         public void ThrowException_When_AccessingContainerBuilderAfterSutPropertyAccessed()
         {
             var setup = new SociableTest<ClassWithNoDependencies>(new MyModule());
@@ -48,19 +55,6 @@ namespace AutofacClassicalTesting.Tests
             Assert.Throws<ContainerAlreadyBuiltException>(() =>
             {
                 setup.ContainerBuilder.RegisterType<MockedDependency>();
-            });
-        }
-
-        [Fact]
-        public void ThrowException_When_TypeNotRegistered()
-        {
-            var setup = new SociableTest<ClassDependingOnIMockedDependency>(new MyModule());
-            
-            //IMockedDependency isn't registered
-            
-            Assert.Throws<DependencyResolutionException>(() =>
-            {
-                setup.Sut.GetType();
             });
         }
 

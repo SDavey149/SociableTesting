@@ -1,6 +1,7 @@
 ﻿using System;
 using Autofac;
 using Autofac.Core;
+using Autofac.Features.ResolveAnything;
 
 namespace AutofacClassicalTesting
 {
@@ -31,6 +32,8 @@ namespace AutofacClassicalTesting
         public SociableTest()
         {
             containerBuilder = new ContainerBuilder();
+            containerBuilder.RegisterSource(new AnyConcreteTypeNotAlreadyRegisteredSource());
+            containerBuilder.RegisterSource(new DefaultMoqSource());
 
             container = new Lazy<IContainer>(() => containerBuilder.Build());
             sut = new Lazy<TSut>(() => container.Value.Resolve<TSut>());

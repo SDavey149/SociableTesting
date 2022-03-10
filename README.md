@@ -61,11 +61,17 @@ public class SociableTestShould
 }
 ```
 
-### Using Test Doubles (Mocks)
+It is not necessary to register all the modules in your application, if any registrations are missing when the container is built then a default mock will be used.
 
-Test doubles can still be used for some dependencies if you wish by using the ```ProvideDependency``` method. ```ProvideDependency```
+You can register further modules by calling ```setup.ProvideModule(new OtherModule());```
+
+### Using Your Own Dependencies
+
+Dependencies can be replaced in the container by using the ```ProvideDependency``` method. ```ProvideDependency```
 must be used **before** any access to either the ```Sut``` or ```ContainerBuilder``` properties. Once either of these properties
 is accessed the container is built and ```ProvideDependency``` will no longer have any effect.
+
+This is useful for setting up your own test doubles or fakes rather than relying on the default mocks provided.
 
 ```cs
 public class SociableTestShould
@@ -73,7 +79,7 @@ public class SociableTestShould
     [Fact]
     public void InitialiseRegisteredClass()
     {
-        var setup = new SociableTest<Class1, MyModule>();
+        var setup = new SociableTest<Class1>(new MyModule());
         var mock = new Mock<IMockedDependency>();
         ProvideDependency<IMockedDependency>(mock.Object);
         setup.Sut.Should().BeOfType<Class1>();
@@ -84,3 +90,7 @@ public class SociableTestShould
 ### Register on ContainerBuilder
 
 The ```ContainerBuilder``` is accessible via a public property on ```SociableTest``` so you can make use of the full range of registration types Autofac provides.
+
+### Retrieving Instances from Container
+
+```setup.Container``` can be used to access ```IContainer``` directly to resolve instances in tests, such as accessing dependencies of the class under test.
