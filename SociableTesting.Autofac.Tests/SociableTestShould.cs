@@ -28,6 +28,18 @@ namespace AutofacClassicalTesting.Tests
         }
 
         [Fact]
+        public void GetBuiltDependency()
+        {
+            var setup = new SociableTest<ClassDependingOnIMockedDependency>();
+            var dependency = new Mock<IMockedDependency>().Object;
+
+            setup.ProvideDependency(dependency);
+
+            var result = setup.Container.Resolve<IMockedDependency>();
+            result.Should().Be(dependency);
+        }
+
+        [Fact]
         public void ThrowException_When_AccessingContainerBuilderAfterSutPropertyAccessed()
         {
             var setup = new SociableTest<ClassWithNoDependencies>(new MyModule());

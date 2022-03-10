@@ -8,7 +8,8 @@
         <Description>Initialise dependencies in unit tests with your container. Provides real implementations of dependencies rather than mocks (sociable unit testing). Can also be used in integration tests.</Description>
         <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
         <RepositoryUrl>https://github.com/SDavey149/AutofacSociableTesting</RepositoryUrl>
-        <PackageVersion>2.0.0</PackageVersion>
+        <PackageVersion>2.1.0</PackageVersion>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     </PropertyGroup>
 
     <ItemGroup>

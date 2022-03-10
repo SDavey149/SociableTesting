@@ -26,6 +26,8 @@ namespace AutofacClassicalTesting
             }
         }
 
+        public IContainer Container => container.Value;
+
         public SociableTest()
         {
             containerBuilder = new ContainerBuilder();
